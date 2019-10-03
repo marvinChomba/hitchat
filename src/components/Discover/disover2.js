@@ -157,7 +157,7 @@ class Discover extends PureComponent {
       data.set('genre', this.state.genre);
       data.set('thumb', this.state.thumb);
       data.set('owner', localStorage.getItem('username'));
-      // this.props.uploadVid(data);
+      this.props.uploadVid(data);
       this.setState({
         modalIsOpen: false,
         uploadError: false
