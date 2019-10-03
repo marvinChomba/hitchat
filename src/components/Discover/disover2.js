@@ -390,7 +390,7 @@ class Discover extends PureComponent {
                           Video
                         </label>
                         <input
-                          className='mb-2'
+                          className='mb-2 text-primary'
                           type='file'
                           name='file'
                           id=''
@@ -405,6 +405,7 @@ class Discover extends PureComponent {
                           type='file'
                           name='thumb'
                           id=''
+                          className='text-primary'
                           onChange={e => this.fileOnChange(e)}
                         />
                       </div>

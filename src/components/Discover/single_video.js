@@ -12,7 +12,7 @@ export default class Single extends Component {
   state = {
     video: {},
     loading: false,
-    shares: 0
+    shares: null
   };
   componentDidMount() {
     this.setState({
@@ -23,6 +23,7 @@ export default class Single extends Component {
         `https://hit-chat.herokuapp.com/profile/videoByID/${this.props.match.params.id}`
       )
       .then(res => {
+        console.log(res.data);
         this.setState({
           video: {
             ...res.data
