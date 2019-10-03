@@ -1,0 +1,11 @@
+.landing-icon {
+  display: inline-block;
+  margin: 1rem auto;
+  font-size: 2em;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  width: 5rem;
+}

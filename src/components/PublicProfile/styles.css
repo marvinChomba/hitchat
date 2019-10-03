@@ -1,0 +1,18 @@
+.user-vids {
+  width: 50%;
+}
+
+.single-vid {
+  border-bottom: 1px double black;
+}
+
+label {
+  color: white
+}
+
+@media (max-width: 768px) {
+
+  .user-vids {
+    width: 90%;
+  }
+}

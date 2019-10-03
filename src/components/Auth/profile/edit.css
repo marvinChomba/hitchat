@@ -1,0 +1,47 @@
+img {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 50%;
+}
+
+
+.icon {
+  padding: 7px;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  border: 1px solid black;
+  height: 2.5rem;
+  width: 2.5rem;
+  cursor: pointer;
+  border: transparent
+}
+
+.icon:hover {
+  transition: 0.4 all;
+  transform: scale(1.12)
+}
+
+.facebook-f {
+  background: #3b5998
+}
+
+.twitter {
+  background: #1DA1F2;
+}
+
+.instagram {
+  background: #C13584;
+}
+
+.fa-facebook-f {
+  color: #fff;
+}
+
+.fa-twitter {
+  color: white;
+}
+
+.fa-instagram {
+  color: white;
+
+}

@@ -1,0 +1,11 @@
+.back .fas{
+  font-size: 1.6rem;
+  margin: 1rem auto;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.back .fas:hover {
+  transition: all 0.2s;
+  transform: scale(1.3)
+}

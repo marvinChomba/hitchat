@@ -1,0 +1,16 @@
+.videoContainer {
+  height: 500px;
+  width: 500px;
+}
+
+.btn-primary {
+  color: black
+}
+
+
+@media (max-width: 768px) {
+  .videoContainer {
+    height: 350px;
+    width: 350px;
+  }
+}

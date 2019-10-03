@@ -1,0 +1,11 @@
+{
+  "firebase": {
+    "apiKey": "AIzaSyAsdiqSYChwqAIOD58-GXttc2lS0qYDUXE",
+    "authDomain": "hitchat-66247.firebaseapp.com",
+    "databaseURL": "https://hitchat-66247.firebaseio.com",
+    "projectId": "hitchat-66247",
+    "storageBucket": "",
+    "messagingSenderId": "1072709851381",
+    "appId": "1:1072709851381:web:785bb3e22daf51d4"
+  }
+}
