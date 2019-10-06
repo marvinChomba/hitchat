@@ -23,7 +23,8 @@ export default class Single extends Component {
         `https://hit-chat.herokuapp.com/profile/videoByID/${this.props.match.params.id}`
       )
       .then(res => {
-        console.log(res.data);
+        console.log(res.data.people_who_shared.length);
+
         this.setState({
           video: {
             ...res.data
@@ -41,7 +42,7 @@ export default class Single extends Component {
         userid: localStorage.getItem('_id')
       })
       .then(res => {
-        console.log(res.data);
+        // console.log(res.data);
         this.setState({
           shares: this.state.shares + 1
         });
@@ -73,6 +74,7 @@ export default class Single extends Component {
                     <p className='lead'>
                       Posted by <Link to={to}>{video.owner}</Link>
                     </p>
+                    <p className="lead">Share video</p>
                     <div className='w-25'>
                       <div className='share'>
                         <Facebook

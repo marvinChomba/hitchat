@@ -72,21 +72,6 @@ export default class index extends Component {
           </div>
         </header>
         <h3 className='text-center mt-3'>Contact Us</h3>
-        <div className='w-100'>
-          <div>
-            <div>
-              <p>
-                <i class='fas fa-phone'></i>
-                {' (066)-12234'}
-              </p>
-            </div>
-            <div>
-              <p>
-                <i class='fas fa-envelope'></i>
-                {'  hitchat@gmail.com'}
-              </p>
-            </div>
-          </div>
           <div className='msg'>
             <form method='post' onSubmit={e => this.send(e)}>
               <div className='form-group'>
@@ -128,7 +113,6 @@ export default class index extends Component {
             </form>
           </div>
           <div></div>
-        </div>
         <LowNav />
       </div>
     );
