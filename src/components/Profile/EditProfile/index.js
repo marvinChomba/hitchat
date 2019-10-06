@@ -150,7 +150,7 @@ class index extends Component {
                 </div>
                 <div className='d-flex justify-content-center'>
                   <button
-                    className='btn btn-success btn-sm'
+                    className='btn btn-sm'
                     onClick={this.toggleModal}
                   >
                     <i className='fas fa-camera text-white'></i>

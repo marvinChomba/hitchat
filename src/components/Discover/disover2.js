@@ -143,7 +143,7 @@ class Discover extends PureComponent {
       this.setState({
         uploadError: true
       });
-    } else if (this.state.file.size > 19972878) {
+    } else if (this.state.file.size > 20000000) {
       this.setState({
         uploadSizeErr: true
       });
@@ -246,14 +246,14 @@ class Discover extends PureComponent {
     const searchBar = this.state.showSearch ? (
       <div className='border border-primary p-3 mb-3'>
         <h5 className='text-center text-white'>Filter</h5>
-        <div className='row py-2 my-2'>
-          <div className='search-barmy-3 d-flex col-md-6 col-sm-10 mb-2'>
-            <form onSubmit={e => this.searchStuff(e)} className='form-inline'>
+        <div className='py-2 my-2'>
+          <div className='search-barmy-3 d-flex mb-2'>
+            <form onSubmit={e => this.searchStuff(e)} className='d-flex'>
               <input
                 placeholder='query'
                 type='text'
                 name='search'
-                className='form-control w-75 mr-4'
+                className='form-control mr-4'
                 style={{ borderRadius: 0 }}
               />
               <button className='btn border py-2 border-black' type='submit'>
@@ -261,19 +261,9 @@ class Discover extends PureComponent {
               </button>
             </form>
           </div>
-          <div className='col-md-5 col-sm-10 d-flex align-items-center'>
-            <select
-              className='border border-black btn form-control text-primary bg-white'
-              id='exampleFormControlSelect1'
-            >
-              <option className='text-primary'>Random</option>
-              <option className='text-primary'>Most Viewed</option>
-              <option className='text-primary'>Most Shared</option>
-            </select>
-          </div>
         </div>
         <div className='d-flex justify-content-center mb-3'>
-          <button className='btn btn-danger btn-sm ' onClick={this.reset}>
+          <button className='btn btn-sm ' onClick={this.reset}>
             Reset
           </button>
         </div>
@@ -298,7 +288,10 @@ class Discover extends PureComponent {
                   {video.title} - {video.artist}
                 </p>
                 <p className='lead'>
-                  Posted by <Link to={to}>{video.owner}</Link>
+                  Posted by{' '}
+                  <Link to={to} style={{ textDecoration: 'underline' }}>
+                    {video.owner}
+                  </Link>
                 </p>
               </div>
               {video.userid === localStorage.getItem('_id') ? (
@@ -342,13 +335,13 @@ class Discover extends PureComponent {
             <div className='col-sm-10 col-md-8 col-lg-8'>
               <Modal isOpen={this.state.modalIsOpen} className='text-primary'>
                 <ModalHeader toggle={this.toggleModal} className='text-primary'>
-                  Add Video
+                  <p className='text-primary'>Add Video</p>
                 </ModalHeader>
                 <ModalBody>
                   <div>
                     <form className='form-group'>
                       <label htmlFor='title' className='text-primary'>
-                        Title
+                        Original Song Title
                       </label>
                       <input
                         className='form-control'
@@ -359,7 +352,7 @@ class Discover extends PureComponent {
                         required
                       />
                       <label htmlFor='name' className='text-primary'>
-                        Name
+                        Original Artist
                       </label>
                       <input
                         className='form-control mb-3'
@@ -369,22 +362,6 @@ class Discover extends PureComponent {
                         onChange={this.onDetailsChanger}
                         required
                       />
-                      <label htmlFor='genre' className='text-primary'>
-                        Genre
-                      </label>
-                      <select
-                        className='form-control'
-                        name='genre'
-                        onChange={this.onDetailsChanger}
-                      >
-                        <option value=''></option>
-                        <option value='hip-hop'>Hip Hop</option>
-                        <option value='gqom'>Gqom</option>
-                        <option value='african-trap'>African Trap</option>
-                        <option value='house'>House</option>
-                        <option value='electronic'>Electronic/Dance</option>
-                        <option value='other'>Other</option>
-                      </select>
                       <div className='my-2'>
                         <label htmlFor='file' className='mx-2 text-primary'>
                           Video

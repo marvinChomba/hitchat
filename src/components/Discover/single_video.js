@@ -72,9 +72,12 @@ export default class Single extends Component {
                       {video.title} - {video.artist}
                     </p>
                     <p className='lead'>
-                      Posted by <Link to={to}>{video.owner}</Link>
+                      Posted by{' '}
+                      <Link to={to} style={{ textDecoration: 'underline' }}>
+                        {video.owner}
+                      </Link>
                     </p>
-                    <p className="lead">Share video</p>
+                    <p className='lead'>Share video</p>
                     <div className='w-25'>
                       <div className='share'>
                         <Facebook

@@ -65,54 +65,51 @@ export default class index extends Component {
   render() {
     return (
       <div className='container mt-4'>
-        <header className='pt-3'>
+        <header className='pt-3 mb-3'>
           <div className='d-flex align-items-center'>
             <Back dest={`/discover`} />
             <Icon />
           </div>
         </header>
-        <h3 className='text-center mt-3'>Contact Us</h3>
-          <div className='msg'>
-            <form method='post' onSubmit={e => this.send(e)}>
-              <div className='form-group'>
-                <div className='mb-2'>
-                  <h4 className='text-center'>Send us a message</h4>
-                  <p
-                    className={`text-${
-                      this.state.failed ? 'danger' : 'success'
-                    }`}
-                  >
-                    {this.state.msg}
-                  </p>
-                  <input
-                    type='text'
-                    name='subject'
-                    className='form-control'
-                    placeholder='Subject'
-                    required
-                    value={this.state.subject}
-                    onChange={e => this.onChange(e)}
-                  />
-                </div>
-                <textarea
-                  value={this.state.message}
-                  required
-                  placeholder='Message'
-                  name='message'
+        <div className='msg'>
+          <form method='post' onSubmit={e => this.send(e)}>
+            <div className='form-group'>
+              <div className='mb-2'>
+                <h4 className='text-center'>Send us a message</h4>
+                <p
+                  className={`text-${this.state.failed ? 'danger' : 'success'}`}
+                >
+                  {this.state.msg}
+                </p>
+                <input
+                  type='text'
+                  name='subject'
                   className='form-control'
-                  id=''
-                  cols='25'
-                  rows='10'
+                  placeholder='Subject'
+                  required
+                  value={this.state.subject}
                   onChange={e => this.onChange(e)}
-                  style={box}
-                ></textarea>
-                <div className='form-group mt-2 d-flex justify-content-end'>
-                  <button className='btn btn-primary'>Send</button>
-                </div>
+                />
               </div>
-            </form>
-          </div>
-          <div></div>
+              <textarea
+                value={this.state.message}
+                required
+                placeholder='Message'
+                name='message'
+                className='form-control'
+                id=''
+                cols='25'
+                rows='10'
+                onChange={e => this.onChange(e)}
+                style={box}
+              ></textarea>
+              <div className='form-group mt-2 d-flex justify-content-end'>
+                <button className='btn btn-primary text-white'>Send</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div></div>
         <LowNav />
       </div>
     );
