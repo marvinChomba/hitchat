@@ -80,7 +80,7 @@ class Discover extends PureComponent {
         .catch(err => {
           console.log(err.message);
         });
-      window.location.href = window.location.origin + '/register';
+      // window.location.href = window.location.origin + '/register';
     }
     // eslint-disable-next-line
 
@@ -137,7 +137,6 @@ class Discover extends PureComponent {
       this.state.title.length === 0 ||
       this.state.artist.length === 0 ||
       this.state.file === '' ||
-      this.state.genre === '' ||
       this.state.thumb === ''
     ) {
       this.setState({
