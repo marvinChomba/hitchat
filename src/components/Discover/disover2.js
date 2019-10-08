@@ -70,6 +70,9 @@ class Discover extends PureComponent {
           localStorage.setItem('jwtToken', res.data.token);
           localStorage.setItem('_id', _id);
           localStorage.setItem('username', username);
+          localStorage.setItem('email', '');
+          localStorage.setItem('number', '');
+
           this.props.setCurrentUser(userData);
           console.log(localStorage);
         })
