@@ -19,7 +19,8 @@ class RegisterFB extends Component {
     number: '',
     username: '',
     pictures: [],
-    pic: ''
+    pic: '',
+    err: false
   };
 
   onLogoutHandler = e => {
@@ -54,11 +55,20 @@ class RegisterFB extends Component {
   onSubmitProfile = e => {
     e.preventDefault();
     const { email, number, username } = this.state;
-    this.props.updateProfile(
-      { email, number, username, _id: localStorage.getItem('_id') },
-      this.props.history
-    );
-    this.props.history.push('/discover');
+    if (email.length === 0 || number.length === 0) {
+      this.setState({
+        err: true
+      });
+    } else {
+      this.setState({
+        err: false
+      });
+      this.props.updateProfile(
+        { email, number, username, _id: localStorage.getItem('_id') },
+        this.props.history
+      );
+      this.props.history.push('/discover');
+    }
   };
 
   onUploadImage = e => {
@@ -182,6 +192,7 @@ class RegisterFB extends Component {
                     <label htmlFor='description'>Description</label>
                     <textarea className='form-control'></textarea>
                   </div>
+                  <p className='text-center'>Please fill in all the details</p>
                   <div className='d-flex justify-content-around'>
                     <div className='submitBtn text-center'>
                       <button
