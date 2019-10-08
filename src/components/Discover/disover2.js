@@ -43,6 +43,7 @@ class Discover extends PureComponent {
   };
 
   componentDidMount = async () => {
+    console.log(localStorage());
     this.setState({
       loading: true
     });
@@ -60,20 +61,15 @@ class Discover extends PureComponent {
         .get(`https://hit-chat.herokuapp.com/user/loggedin/${key}`)
         .then(res => {
           const decoded = jwt_decode(res.data.token);
-          console.log(decoded);
           const { username, _id } = decoded.user;
           const userData = {
             username,
             email: '',
             number: ''
           };
-          console.log(res.data.token);
           localStorage.setItem('jwtToken', res.data.token);
           localStorage.setItem('_id', _id);
           localStorage.setItem('username', username);
-          localStorage.setItem('email', '');
-          localStorage.setItem('number', '');
-
           this.props.setCurrentUser(userData);
         })
         .catch(err => {
