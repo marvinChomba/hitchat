@@ -43,7 +43,6 @@ class Discover extends PureComponent {
   };
 
   componentDidMount = async () => {
-    console.log(localStorage());
     this.setState({
       loading: true
     });
