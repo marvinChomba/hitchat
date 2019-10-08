@@ -71,11 +71,11 @@ class Discover extends PureComponent {
           localStorage.setItem('username', username);
           this.props.setCurrentUser(userData);
           console.log(localStorage);
+          this.props.history.push('/register');
         })
         .catch(err => {
           console.log(err.message);
         });
-      // window.location.href = window.location.origin + '/register';
     }
 
     if (this.state.videos.length !== -1980) {
