@@ -18,7 +18,7 @@ import store from './store';
 import Profile from './components/Admin/profile2';
 import PublicProfile from './components/PublicProfile';
 import Single from './components/Discover/single_video';
-import profileReg from './components/Auth/profile/profile-reg';
+import Reg from './components/Discover/registerModal';
 import Contact from './components/contact';
 import AdminP from './components/PublicProfile/admin_profile';
 import AdminRoute from './components/Layout/Private/admin';
@@ -38,8 +38,6 @@ if (localStorage.getItem('jwtToken')) {
 }
 
 function App() {
-  console.log(localStorage);
-  // localStorage.clear()
   return (
     <div className='App'>
       <Spinner />
@@ -56,7 +54,7 @@ function App() {
         <PrivateRoute path='/profile/:id' component={Profile} />
         <PrivateRoute path='/public-profile/:id' component={PublicProfile} />
         <Route path='/video/:id' component={Single} />
-        <PrivateRoute path='/register' component={profileReg} />
+        <PrivateRoute path='/register' component={Reg} />
       </Switch>
     </div>
   );

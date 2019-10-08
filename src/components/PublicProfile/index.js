@@ -52,7 +52,6 @@ class index extends Component {
         _id: this.props.match.params.id
       })
       .then(res => {
-        console.log(res.data);
         this.setState({
           loading: false,
           user: res.data.user,
@@ -99,12 +98,6 @@ class index extends Component {
   };
 
   render() {
-    let icon = null;
-    if (this.state.liked) {
-      icon = <i style={{ color: 'red' }} class='fas fa-heart'></i>;
-    } else {
-      icon = <i class='far fa-heart'></i>;
-    }
     const { username, profile_image } = this.state.user;
     let display = null;
     if (this.state.loading) {

@@ -79,7 +79,7 @@ class Discover extends PureComponent {
         .catch(err => {
           console.log(err.message);
         });
-      // window.location.href = window.location.origin + '/register';
+      this.history.push('/register');
     }
 
     if (this.state.videos.length !== -1980) {

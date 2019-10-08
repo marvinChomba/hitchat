@@ -9,7 +9,6 @@ export const registerUser = (userData, history) => dispatch => {
     type: 'SPIN',
     [pendingTask]: begin
   });
-  console.log(userData);
   axios
     .post('https://hit-chat.herokuapp.com/user/create_user', userData)
     .then(res => {
@@ -174,19 +173,14 @@ export const updateProfile1 = (userDetails, history) => dispatch => {
       ...userDetails
     })
     .then(res => {
-      console.log(res.data, 'nits');
-      localStorage.setItem('username', res.data['username']);
       localStorage.setItem('email', res.data['email']);
       localStorage.setItem('number', res.data['number']);
       dispatch({
         type: 'SPIN',
         [pendingTask]: end
       });
-      history.push('/discover');
     })
     .catch(err => {
-      console.log('Woah');
-
       dispatch({
         type: 'SPIN',
         [pendingTask]: end
