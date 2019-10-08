@@ -27,10 +27,6 @@ class Reg extends Component {
       });
       const { email, number } = this.state;
       this.props.updateProfile1({ email, number });
-      const data = new FormData();
-      data.set('file', this.state.pic);
-      data.set('_id', localStorage.getItem('_id'));
-      this.props.changeDp(data);
       this.props.history.push('/discover');
     }
   };
@@ -73,16 +69,6 @@ class Reg extends Component {
                 name='number'
                 id=''
                 onChange={e => this.onChange(e)}
-              />
-            </div>
-            <div className='form-group'>
-              <label htmlFor='pic'>Profile Image</label>
-              <input
-                type='file'
-                name='pic'
-                id=''
-                onChange={this.changeImage}
-                className='form-control-file'
               />
             </div>
             <p className='text-center text-bold'>

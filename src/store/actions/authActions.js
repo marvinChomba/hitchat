@@ -173,6 +173,7 @@ export const updateProfile1 = (userDetails, history) => dispatch => {
       ...userDetails
     })
     .then(res => {
+      console.log(res.data);
       localStorage.setItem('email', res.data['email']);
       localStorage.setItem('number', res.data['number']);
       dispatch({
