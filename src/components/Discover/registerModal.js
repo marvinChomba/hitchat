@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateProfile1 } from '../../store/actions/authActions';
-import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 class Reg extends Component {
   state = {
