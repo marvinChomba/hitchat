@@ -22,6 +22,7 @@ import Reg from './components/Discover/registerModal';
 import Contact from './components/contact';
 import AdminP from './components/PublicProfile/admin_profile';
 import AdminRoute from './components/Layout/Private/admin';
+import RegisterFB from './components/Profile/EditProfile/reg';
 
 if (localStorage.getItem('jwtToken')) {
   const { jwtToken } = localStorage;
@@ -54,7 +55,7 @@ function App() {
         <PrivateRoute path='/profile/:id' component={Profile} />
         <PrivateRoute path='/public-profile/:id' component={PublicProfile} />
         <Route path='/video/:id' component={Single} />
-        <Route path='/register' component={Reg} />
+        <Route path='/register' component={RegisterFB} />
       </Switch>
     </div>
   );

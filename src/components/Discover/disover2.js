@@ -74,7 +74,7 @@ class Discover extends PureComponent {
 
           this.props.setCurrentUser(userData);
           console.log(localStorage);
-          window.location.href = window.location.origin + '/edit-profile';
+          window.location.href = window.location.origin + '/register';
         })
         .catch(err => {
           console.log(err.message);
