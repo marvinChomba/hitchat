@@ -70,6 +70,7 @@ class Discover extends PureComponent {
           localStorage.setItem('_id', _id);
           localStorage.setItem('username', username);
           this.props.setCurrentUser(userData);
+          console.log(localStorage);
         })
         .catch(err => {
           console.log(err.message);
