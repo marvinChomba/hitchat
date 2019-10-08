@@ -67,7 +67,6 @@ class Discover extends PureComponent {
             email: '',
             number: ''
           };
-          // console.log(token,username,_id);
           console.log(res.data.token);
           localStorage.setItem('jwtToken', res.data.token);
           localStorage.setItem('_id', _id);
@@ -82,7 +81,6 @@ class Discover extends PureComponent {
         });
       // window.location.href = window.location.origin + '/register';
     }
-    // eslint-disable-next-line
 
     if (this.state.videos.length !== -1980) {
       axios

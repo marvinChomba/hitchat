@@ -16,6 +16,9 @@ body {
   color: white;
 }
 
+.text-primary {
+  color: black !important;
+}
 
 .btn {
   border-radius: 40px;
@@ -23,6 +26,10 @@ body {
   background: #f73859;
   color: white;
   border: none;
+}
+
+a {
+  color: black;
 }
 
 

@@ -35,14 +35,15 @@ export default class Single extends Component {
       });
   }
 
-  onShare = () => {
+  onShare = id => {
     console.log('Wassup');
     axios
       .post('https://hit-chat.herokuapp.com/profile/increment_share', {
-        userid: localStorage.getItem('_id')
+        userid: localStorage.getItem('_id'),
+        videoid: id
       })
       .then(res => {
-        // console.log(res.data);
+        console.log(res.data);
         this.setState({
           shares: this.state.shares + 1
         });
@@ -81,7 +82,7 @@ export default class Single extends Component {
                     <div className='w-25'>
                       <div className='share'>
                         <Facebook
-                          click={this.onShare}
+                          click={() => this.onShare(video.id)}
                           shares={this.state.shares}
                           url={`/video/${video._id}`}
                         />

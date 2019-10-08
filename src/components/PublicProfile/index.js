@@ -40,6 +40,10 @@ class index extends Component {
   };
 
   componentDidMount() {
+    if (localStorage.getItem('_id') === this.props.match.params.id) {
+      this.props.history.push('/edit-profile');
+      return;
+    }
     this.setState({
       loading: true
     });
@@ -93,7 +97,7 @@ class index extends Component {
     //   userid: localStorage.getItem('_id')
     // });
   };
-  
+
   render() {
     let icon = null;
     if (this.state.liked) {
