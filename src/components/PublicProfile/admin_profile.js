@@ -46,6 +46,7 @@ class AdminP extends Component {
 
   deleteUser = _id => {
     this.props.deleteUser({ _id });
+    this.props.history.push('/admin1');
   };
 
   componentDidMount() {

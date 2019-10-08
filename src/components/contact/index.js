@@ -82,6 +82,7 @@ export default class index extends Component {
                   {this.state.msg}
                 </p>
                 <input
+                  autoComplete='off'
                   type='text'
                   name='subject'
                   className='form-control'
@@ -92,6 +93,7 @@ export default class index extends Component {
                 />
               </div>
               <textarea
+                autoComplete='off'
                 value={this.state.message}
                 required
                 placeholder='Message'
