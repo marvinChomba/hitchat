@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { deleteVideo } from '../../store/actions/authActions';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import Facebook from '../Discover/share/facebook';
 import Video from '../Layout/Video/Video';
 
 class index extends Component {

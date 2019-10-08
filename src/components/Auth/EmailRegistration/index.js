@@ -17,14 +17,15 @@ class index extends Component {
     errors: {},
     checked: false
   };
+
   componentDidMount() {
-    // If logged in and user navigates to Register page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
       this.props.history.push('/discover');
     }
   }
 
   toggleHandler = e => {
+    // toggle checking for accepting terms and conditions
     this.setState(prevState => {
       return {
         checked: !prevState.checked
@@ -33,12 +34,15 @@ class index extends Component {
   };
 
   onChangeHandler = e => {
+    // handler for change in input
     this.setState({
       [e.target.id]: e.target.value
     });
   };
 
   onSubmitHandler = e => {
+
+    //submit handler
     e.preventDefault();
     const errors = {};
 
@@ -75,7 +79,6 @@ class index extends Component {
   }
 
   render() {
-    // localStorage.clear();
     const { errors } = this.state;
     return (
       <div className='container pt-3'>
@@ -184,11 +187,6 @@ class index extends Component {
     );
   }
 }
-// index.propTypes = {
-//   registerUser: PropTypes.func,
-//   auth: PropTypes.object,
-//   errors: PropTypes.object
-// };
 
 const inputStyle = {
   borderRadius: 0

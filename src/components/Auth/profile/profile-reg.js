@@ -4,7 +4,6 @@ import {
   updateProfile1,
   changeDp
 } from '../../../store/actions/authActions';
-import Socials from '../../Profile/EditProfile/socials';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { connect } from 'react-redux';
 import Icon from '../../Layout/Icon';
@@ -53,7 +52,7 @@ class ProfileReg extends Component {
   onSubmitProfile = e => {
     e.preventDefault();
     const { email, number, username } = this.state;
-    if (email.length === 0 || number.length == 0 || username.length === 0) {
+    if (email.length === 0 || number.length === 0 || username.length === 0) {
       alert('Please fill in all the details');
     } else {
       this.props.updateProfile1(
@@ -92,7 +91,6 @@ class ProfileReg extends Component {
   };
 
   render() {
-    // console.log(this.props.auth.user)
     const { username, email, number } = this.state;
     return (
       <React.Fragment>
@@ -189,23 +187,6 @@ class ProfileReg extends Component {
                     <label htmlFor='description'>Description</label>
                     <textarea className='form-control'></textarea>
                   </div>
-                  {/* <div className="mb-2">
-                <label htmlFor="password">Password</label>
-                <input
-                  value={this.props.password}
-                  type="password"
-                  className="form-control"
-                  onChange={this.onChangeHandler}
-                  error={errors.password}
-                  id="password"
-                  autoComplete="off"
-                  style={inputStyle}
-                />
-              </div> */}
-                  {/* <div className="custom-control custom-checkbox mt-2">
-                <input type="checkbox" onClick={this.toggleHandler} className="custom-control-input" id="defaultUnchecked" style={inputStyle} />
-                <label className="custom-control-label" htmlFor="defaultUnchecked">Accept <Link to="/terms-and-conditions">terms & conditions.</Link></label>
-              </div> */}
                   <div className='d-flex justify-content-around'>
                     <div className='submitBtn text-center'>
                       <button
@@ -215,14 +196,6 @@ class ProfileReg extends Component {
                         Edit
                       </button>
                     </div>
-                    {/* <div className='submitBtn text-center'>
-                      <button
-                        className='btn btn-danger mt-2 border border-black px-4'
-                        onClick={this.onLogoutHandler}
-                      >
-                        Logout
-                      </button>
-                    </div> */}
                   </div>
                 </form>
               </div>

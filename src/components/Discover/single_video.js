@@ -101,7 +101,7 @@ export default class Single extends Component {
                           }
                         }}
                       >
-                        <i class='fas fa-flag'></i>{' '}
+                        <i className='fas fa-flag'></i>{' '}
                       </Link>
                     </div>
                   </div>

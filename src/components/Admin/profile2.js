@@ -13,29 +13,6 @@ export default class profile extends Component {
     this.setState({
       loading: true
     });
-    console.log(this.props);
-    // if (this.props && this.props.location.state.id) {
-    //   const _id = this.props.location.state.id.toString();
-    //   console.log(typeof _id);
-    //   axios
-    //     .post('https://hit-chat.herokuapp.com/profile/list_my_videos', {
-    //       _id
-    //     })
-    //     .then(res => {
-    //       console.log(res);
-    //       this.setState(
-    //         {
-    //           videos: [...res.data.videos],
-    //           user: res.data.user
-    //         },
-    //         () => {
-    //           this.setState({
-    //             loading: false
-    //           });
-    //         }
-    //       );
-    //     });
-    // }
   }
   render() {
     const { loading } = this.state;

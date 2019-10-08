@@ -10,11 +10,6 @@ export default class index extends Component {
   render() {
     return (
       <div>
-        {/* <FacebookLogin
-          appId="853169785064809"
-          fields="name,email,picture"
-          onClick={() => this.props.componentClicked()}
-          callback={this.responseFacebook} /> */}
         <FacebookLogin
           appId="853169785064809"
           callback={this.responseFacebook}

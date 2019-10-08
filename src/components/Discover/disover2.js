@@ -1,24 +1,24 @@
 import React, { PureComponent } from 'react';
 import axios from 'axios';
 import query_string from 'query-string';
-import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import Modals from './modal';
 import { connect } from 'react-redux';
 import jwt_decode from 'jwt-decode';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import {
   logoutUser,
   uploadVid,
   deleteVideo,
   setCurrentUser
 } from '../../store/actions/authActions';
+import SearchBar from './searchBar';
 import Icon from '../Layout/Icon';
 import LowNav from '../Layout/LowNav';
-import Spinner from '../Layout/Spinner';
+import Videos from './videos';
 import './discover.css';
-// import Video from '../Layout/Video/Video';
 import './style.css';
 import SideNav from './SideNav';
-// import Facebook from './share/facebook';
+import Controls from './controls';
 
 class Discover extends PureComponent {
   state = {
@@ -194,13 +194,7 @@ class Discover extends PureComponent {
         userid: localStorage.getItem('_id'),
         videoid: id
       })
-      .then(res => {
-        console.log(res.data);
-        // this.setState({
-        //   toShow: res.data,
-        //   loading: false
-        // });
-      })
+      .then(res => {})
       .catch(err => {
         this.setState({
           loading: false
@@ -237,216 +231,43 @@ class Discover extends PureComponent {
     });
   };
 
-  addShare = (id, prev) => {};
-
   render() {
     const searchBar = this.state.showSearch ? (
-      <div className='border border-primary p-3 mb-3'>
-        <h5 className='text-center text-white'>Filter</h5>
-        <div className='py-2 my-2'>
-          <div className='search-barmy-3 d-flex mb-2'>
-            <form onSubmit={e => this.searchStuff(e)} className='d-flex'>
-              <input
-                placeholder='query'
-                type='text'
-                name='search'
-                className='form-control mr-4'
-                style={{ borderRadius: 0 }}
-              />
-              <button className='btn border py-2 border-black' type='submit'>
-                <i className='fas fa-search' />
-              </button>
-            </form>
-          </div>
-        </div>
-        <div className='d-flex justify-content-center mb-3'>
-          <button className='btn btn-sm ' onClick={this.reset}>
-            Reset
-          </button>
-        </div>
-      </div>
+      <SearchBar reset={this.reset} searchStuff={this.searchStuff} />
     ) : null;
-    let videos;
-    if (this.state.toShow.length > 0 && this.state.loading === false) {
-      videos = this.state.toShow.map(video => {
-        const to = '/public-profile/' + video.userid;
-        return (
-          <div key={video.id} className='mb-5 border-bottom pb-3 border-black'>
-            <div
-              className='w-100 img-responsive thumb-container'
-              onClick={() => this.singleVideo(video.id, 0)}
-            >
-              <img src={video.thumbnail} alt='' className='thumb-img' />
-              {/* <Video url={video.url} thumb={video.thumbnail} /> */}
-            </div>
-            <div className='d-flex justify-content-between'>
-              <div>
-                <p className='lead mt-2'>
-                  {video.title} - {video.artist}
-                </p>
-                <p className='lead'>
-                  Posted by{' '}
-                  <Link to={to} style={{ textDecoration: 'underline' }}>
-                    {video.owner}
-                  </Link>
-                </p>
-              </div>
-              {video.userid === localStorage.getItem('_id') ? (
-                <div className=''>
-                  <div
-                    style={{ cursor: 'pointer' }}
-                    data-toggle='dropdown'
-                    aria-haspopup='true'
-                    aria-expanded='false'
-                  >
-                    <i
-                      className='fas fa-ellipsis-v'
-                      style={{ fontSize: '1.4rem', cursor: 'pointer' }}
-                    ></i>
-                  </div>
-                  <div
-                    className='dropdown-menu text-center h-auto w-25'
-                    style={{ cursor: 'pointer' }}
-                  >
-                    {/* eslint-disable-next-line */}
-                    <a href='#' onClick={() => this.deleteVideo(video.id)}>
-                      <i className='fas fa-trash text-danger'></i>
-                    </a>
-                  </div>
-                </div>
-              ) : null}
-            </div>
-          </div>
-        );
-      });
-    } else if (this.state.toShow.length === 0 && this.state.loading === false) {
-      videos = <p>There are no videos at the moment.</p>;
-    } else if (this.state.loading === true) {
-      videos = <Spinner />;
-      // videos = <Spinner />;
-    }
     return (
       <React.Fragment>
         <div className='container'>
           <div className='row'>
             <div className='col-sm-10 col-md-8 col-lg-8'>
-              <Modal isOpen={this.state.modalIsOpen} className='text-primary'>
-                <ModalHeader toggle={this.toggleModal} className='text-primary'>
-                  <p className='text-primary'>Add Video</p>
-                </ModalHeader>
-                <ModalBody>
-                  <div>
-                    <form className='form-group'>
-                      <label htmlFor='title' className='text-primary'>
-                        Original Song Title
-                      </label>
-                      <input
-                        className='form-control'
-                        type='text'
-                        name='title'
-                        id=''
-                        onChange={this.onDetailsChanger}
-                        required
-                      />
-                      <label htmlFor='name' className='text-primary'>
-                        Original Artist
-                      </label>
-                      <input
-                        className='form-control mb-3'
-                        type='text'
-                        name='artist'
-                        id=''
-                        onChange={this.onDetailsChanger}
-                        required
-                      />
-                      <div className='my-2'>
-                        <label htmlFor='file' className='mx-2 text-primary'>
-                          Video
-                        </label>
-                        <input
-                          className='mb-2 text-primary'
-                          type='file'
-                          name='file'
-                          id=''
-                          onChange={e => this.fileOnChange(e)}
-                        />
-                      </div>
-                      <div className='my-2'>
-                        <label htmlFor='thumb' className='mx-2 text-primary'>
-                          Thumbnail
-                        </label>
-                        <input
-                          type='file'
-                          name='thumb'
-                          id=''
-                          className='text-primary'
-                          onChange={e => this.fileOnChange(e)}
-                        />
-                      </div>
-                    </form>
-                    <p className='text-center text-danger'>
-                      {this.state.uploadError
-                        ? 'Please fill in all the details'
-                        : null}
-                      {this.state.uploadSizeErr
-                        ? 'The video size should be less than 20MB'
-                        : null}
-                    </p>
-                  </div>
-                </ModalBody>
-                <ModalFooter>
-                  <button
-                    className='btn btn-sm text-white'
-                    onClick={this.uploadVid}
-                  >
-                    Upload
-                  </button>
-                  <button
-                    className='btn btn-sm text-white'
-                    onClick={this.toggleModal}
-                  >
-                    Dismiss
-                  </button>
-                </ModalFooter>
-              </Modal>
+              <Modals
+                uploadVid={this.uploadVid}
+                toggleModal={this.toggleModal}
+                fileOnChange={this.fileOnChange}
+                onDetailsChanger={this.onDetailsChanger}
+                modalIsOpen={this.state.modalIsOpen}
+                uploadError={this.state.uploadError}
+                uploadSizeErr={this.state.uploadSizeErr}
+              />
               <div className='container' style={{ marginBottom: '60px' }}>
                 <div>
                   <Icon />
                 </div>
-                <div
-                  className='header d-flex 
-          justify-content-between my-3'
-                >
-                  <div className='all'>
-                    <button
-                      onClick={this.resetAll}
-                      className=' btn btn-light btn-sm'
-                    >
-                      All
-                    </button>
-                  </div>
-                  <div className='mine'>
-                    <button
-                      onClick={this.filterMine}
-                      className=' btn btn-light btn-sm'
-                    >
-                      Mine
-                    </button>
-                  </div>
-                  <div>
-                    <button
-                      onClick={this.showSearchBar}
-                      className='py-1 btn btn-light'
-                    >
-                      <i className='fas fa-search' />
-                    </button>
-                  </div>
-                  <div className='btn btn-light' onClick={this.toggleModal}>
-                    <i className='fas fa-plus' />
-                  </div>
-                </div>
+                <Controls
+                  resetAll={this.resetAll}
+                  filterMine={this.filterMine}
+                  showSearchBar={this.showSearchBar}
+                  toggleModal={this.toggleModal}
+                />
                 {searchBar}
-                <main className='px-autop w-2 mb-5'>{videos}</main>
+                <main className='px-autop w-2 mb-5'>
+                  <Videos
+                    toShow={this.state.toShow}
+                    loading={this.state.loading}
+                    deleteVideo={this.deleteVideo}
+                    singleVideo={this.singleVideo}
+                  />
+                </main>
               </div>
             </div>
             <SideNav />

@@ -33,9 +33,9 @@ class index extends Component {
     e.preventDefault();
     const user = { ...this.state };
     delete user.errors;
-    // console.log(user)
     this.props.loginUser(user, this.props.history);
   };
+  
   render() {
     const { errors } = this.state;
     return (
@@ -92,11 +92,6 @@ const inputStyle = {
   borderRadius: 0
 };
 
-// index.propTypes = {
-//   loginUser: PropTypes.func.isRequired,
-//   auth: PropTypes.object.isRequired,
-//   errors: PropTypes.object.isRequired
-// };
 
 const mapStateToProps = state => ({
   auth: state.auth,
