@@ -71,7 +71,7 @@ export default class index extends Component {
             <Icon />
           </div>
         </header>
-        <div className='msg'>
+        <div className='msg mx-auto'>
           <form method='post' onSubmit={e => this.send(e)}>
             <div className='form-group'>
               <div className='mb-2'>
