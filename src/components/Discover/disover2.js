@@ -59,7 +59,6 @@ class Discover extends PureComponent {
       axios
         .get(`https://hit-chat.herokuapp.com/user/loggedin/${key}`)
         .then(res => {
-          this.props.history.push('/edit-profile');
           const decoded = jwt_decode(res.data.token);
           const { username, _id } = decoded.user;
           const userData = {
@@ -75,6 +74,7 @@ class Discover extends PureComponent {
 
           this.props.setCurrentUser(userData);
           console.log(localStorage);
+          window.location.href = window.location.origin + '/edit-profile';
         })
         .catch(err => {
           console.log(err.message);
