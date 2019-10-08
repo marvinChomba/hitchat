@@ -61,8 +61,8 @@ class index extends Component {
   };
 
   onUploadImage = e => {
-    console.log('one');
-    if (this.state.pic.type === 'image/jpeg') {
+    const types = ['image/jpeg', 'image/jpg', 'image/png'];
+    if (types.indexOf(this.state.pic.type) !== -1) {
       const data = new FormData();
       data.set('file', this.state.pic);
       data.set('_id', localStorage.getItem('_id'));
@@ -136,10 +136,7 @@ class index extends Component {
                   />
                 </div>
                 <div className='d-flex justify-content-center'>
-                  <button
-                    className='btn btn-sm'
-                    onClick={this.toggleModal}
-                  >
+                  <button className='btn btn-sm' onClick={this.toggleModal}>
                     <i className='fas fa-camera text-white'></i>
                   </button>
                 </div>
