@@ -88,12 +88,6 @@ class index extends Component {
   };
 
   render() {
-    let icon = null;
-    if (true) {
-      icon = <i style={{ color: 'red' }} class='fas fa-heart'></i>;
-    } else {
-      icon = <i class='far fa-heart'></i>;
-    }
     const { username, email, number, image } = this.state;
     return (
       <React.Fragment>
@@ -113,13 +107,6 @@ class index extends Component {
                   id='pic'
                 />
               </form>
-              {/* <ImageUploader
-                withIcon={true}
-                buttonText='Choose images'
-                onChange={this.onDrop}
-                imgExtension={['.jpg', '.gif', '.png', '.gif']}
-                maxFileSize={5242880}
-              /> */}
             </div>
           </ModalBody>
           <ModalFooter>
@@ -155,12 +142,6 @@ class index extends Component {
                   >
                     <i className='fas fa-camera text-white'></i>
                   </button>
-                </div>
-                <div className=' my-3 d-flex justify-content-center'>
-                  <div className='mr-3' style={{ cursor: 'pointer' }}>
-                    {icon}
-                  </div>
-                  <div>{0}</div>
                 </div>
               </div>
 

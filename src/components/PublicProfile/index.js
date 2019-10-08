@@ -125,16 +125,7 @@ class index extends Component {
                   <div className='photo d-flex justify-content-center mb-2'>
                     <img alt='profile' src={profile_image} />
                   </div>
-                  <div className=' my-3 d-flex justify-content-center'>
-                    <div
-                      className='mr-3'
-                      style={{ cursor: 'pointer' }}
-                      onClick={this.likeProf}
-                    >
-                      {icon}
-                    </div>
-                    <div>{this.state.likes}</div>
-                  </div>
+                  
                 </div>
 
                 <div className='d-flex justify-content-center col-sm-10 col-lg-5'>
