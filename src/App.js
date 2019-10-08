@@ -54,7 +54,7 @@ function App() {
         <PrivateRoute path='/profile/:id' component={Profile} />
         <PrivateRoute path='/public-profile/:id' component={PublicProfile} />
         <Route path='/video/:id' component={Single} />
-        <PrivateRoute path='/register' component={Reg} />
+        <Route path='/register' component={Reg} />
       </Switch>
     </div>
   );
