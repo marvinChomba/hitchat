@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import Icon from '../../Layout/Icon';
 import Back from '../../Layout/Back';
 import './oauth.css';
@@ -7,6 +6,9 @@ import './oauth.css';
 export default class index extends Component {
   change = dest => {
     window.location.href = `https://hit-chat.herokuapp.com/user/${dest}`;
+  };
+  onEmail = () => {
+    this.props.history.push('/signup-email');
   };
 
   render() {
@@ -25,10 +27,8 @@ export default class index extends Component {
             <div className='google ' onClick={() => this.change('google')}>
               <p className='text-white my-auto'>Google</p>
             </div>
-            <div className='email bg-white'>
-              <Link to='/signup-email' className='link'>
-                Email
-              </Link>
+            <div className='email bg-white' onClick={this.onEmail}>
+              <p className='link my-auto'>Email</p>
             </div>
           </div>
         </div>
