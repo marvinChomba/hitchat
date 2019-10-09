@@ -23,6 +23,7 @@ class Landing extends Component {
               url={
                 'https://firebasestorage.googleapis.com/v0/b/hitc-f8b15.appspot.com/o/HitChat_AD_video.mp4?alt=media&token=f5eb5b59-4f24-4882-ba26-08636462b7ac'
               }
+              thumb='https://firebasestorage.googleapis.com/v0/b/hitc-f8b15.appspot.com/o/nit123.JPG?alt=media&token=087d6505-f123-410b-be7d-4824feb482d1'
             />
           </div>
         </div>
