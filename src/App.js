@@ -18,7 +18,6 @@ import store from './store';
 import Profile from './components/Admin/profile2';
 import PublicProfile from './components/PublicProfile';
 import Single from './components/Discover/single_video';
-import Reg from './components/Discover/registerModal';
 import Contact from './components/contact';
 import AdminP from './components/PublicProfile/admin_profile';
 import AdminRoute from './components/Layout/Private/admin';

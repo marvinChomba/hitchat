@@ -7,7 +7,6 @@ import {
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { connect } from 'react-redux';
 import Icon from '../../Layout/Icon';
-import Back from '../../Layout/Back';
 import './edit.css';
 import LowNav from '../../Layout/LowNav';
 
@@ -229,4 +228,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { logoutUser, updateProfile, changeDp }
-)(index);
+)(RegisterFB);
